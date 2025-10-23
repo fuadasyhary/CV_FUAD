@@ -5,287 +5,340 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Resume — Mochamad Fuad Asyhary</title>
   <link rel="icon" type="image/png" href="logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sap-blue: #0A6ED1;
-      --muted: #6b7280;
-      --bg: #f5f7fa;
-      --fg: #111827;
-      --card: #ffffff;
-      --border: #e6eaf0;
-    }
-    .dark {
-      --bg: #0b1220;
-      --fg: #e6eef8;
-      --card: #0f1724;
-      --border: #28303a;
+      --sap-blue-1: #0A6ED1;
+      --sap-blue-2: #1E88E5;
       --muted: #98a0ab;
+      --bg: linear-gradient(180deg,#041022 0%, #071129 100%);
+      --card-bg: rgba(8,12,20,0.56);
+      --glass-border: rgba(255,255,255,0.04);
+      --fg: #e6eef8;
+      --shadow: 0 10px 30px rgba(14,30,60,0.35);
+      --radius: 16px;
     }
-    * { box-sizing: border-box; transition: all 0.3s ease; }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+
     body {
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       margin: 0;
-      background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       color: var(--fg);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-    a { color: var(--sap-blue); text-decoration: none; }
-    .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
       padding: 28px;
-      box-shadow: 0 8px 24px rgba(16,24,40,0.08);
     }
-    header {
+
+    .wrap { max-width: 1100px; margin: 0 auto }
+    .resume {
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header-band {
+      position: absolute; top: 0; left: 0; right: 0; height: 140px;
+      background: linear-gradient(90deg, var(--sap-blue-1), var(--sap-blue-2));
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      z-index: 0;
+      opacity: 0.95;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 24px;
+      padding-top: 18px;
+      align-items: center;
+    }
+
+    .profile {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex: 0 0 150px;
+      border: 4px solid rgba(255,255,255,0.18);
+      box-shadow: 0 8px 20px rgba(14,30,60,0.25);
+      transform: translateY(-12px);
+    }
+
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block }
+
+    .name-block h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(3,16,50,0.35);
+    }
+
+    .name-block p {
+      margin: 6px 0 0 0;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    .meta-links {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+    }
+
+    .brand-pill {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .actions { margin-left: auto; display: flex; gap: 10px; align-items: center }
+    .btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn.primary {
+      background: linear-gradient(90deg, var(--sap-blue-1), var(--sap-blue-2));
+      border: none;
+      box-shadow: 0 6px 18px rgba(30,136,229,0.25);
+    }
+
+    .content { display: grid; grid-template-columns: 2fr 1fr; gap: 26px; margin-top: 28px }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(6px) saturate(120%);
+      box-shadow: 0 6px 18px rgba(8,16,40,0.1);
+    }
+
+    h2 { margin: 0 0 8px 0; color: var(--fg); font-size: 18px }
+    h3 { margin: 0; color: var(--fg); font-size: 16px }
+    p, li, small { color: var(--muted); line-height: 1.45 }
+    ul { padding-left: 18px; margin: 8px 0 }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px }
+    .proj {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.03);
+      transition: transform .28s ease, box-shadow .28s;
+    }
+    .proj:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(12,40,100,0.25);
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px }
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      font-weight: 600;
+      color: #fff;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-    .meta {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-    .meta img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--border);
-      box-shadow: 0 0 12px rgba(10,110,209,0.25);
-    }
-    .meta img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 18px rgba(10,110,209,0.45);
-    }
-    .brand-pill {
-      background: var(--sap-blue);
-      color: white;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 13px;
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(10,110,209,0.4);
-    }
-    .actions { display: flex; gap: 8px; align-items: center; }
-    .btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      padding: 8px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .btn.primary {
-      background: var(--sap-blue);
-      color: white;
-      border-color: transparent;
-    }
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    h1, h2, h3, h4 { margin: 0; font-weight: 700; }
-    h1 { font-size: 28px; }
-    h2 { font-size: 22px; margin-top: 20px; }
-    h3 { font-size: 18px; margin-top: 14px; }
-    h4 { font-size: 16px; }
-    p, li, small { color: var(--muted); }
-    .grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: 2fr 1fr;
-      margin-top: 18px;
-    }
-    .list-dot { margin-left: 18px; }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .tag {
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      background: rgba(10,110,209,0.06);
-      font-weight: 500;
-    }
-    footer {
-      text-align: center;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
       color: var(--muted);
-      margin-top: 24px;
       font-size: 13px;
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
+      position: relative;
     }
-    @media (max-width: 800px) {
-      .grid { grid-template-columns: 1fr; }
-      header { flex-direction: column; align-items: center; text-align: center; }
-      .meta { flex-direction: column; }
+
+    .watermark {
+      position: absolute;
+      right: 18px;
+      bottom: 10px;
+      opacity: 0.06;
+      width: 160px;
+      pointer-events: none;
+      filter: grayscale(100%);
     }
+
+    @media (max-width: 920px) {
+      .content { grid-template-columns: 1fr }
+      .header-content { flex-direction: column; align-items: flex-start }
+      .avatar { width: 120px; height: 120px; transform: translateY(-8px) }
+    }
+
     @media print {
-      .actions, .no-print { display: none !important; }
-      body { background: white; }
-      .container { padding: 0; }
-      .card { box-shadow: none; border: none; }
+      body { background: #fff; color: #000; padding: 0 }
+      .header-band, .btn, .actions, .watermark { display: none }
+      .resume { box-shadow: none; border-radius: 0; background: #fff }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <header>
-        <div class="meta">
-          <img src="foto.jpg" alt="Foto Mochamad Fuad Asyhary">
-          <div>
+  <div class="wrap">
+    <div class="resume" id="resume-root">
+      <div class="header-band"></div>
+
+      <div class="header-content">
+        <div class="profile">
+          <div class="avatar"><img src="foto.jpg" alt="Foto Mochamad Fuad Asyhary"></div>
+          <div class="name-block">
             <h1>Mochamad Fuad Asyhary</h1>
-            <div style="color:var(--muted);margin-top:4px">Software Developer SAP — ABAP & Functional BW</div>
-            <div style="margin-top:8px;font-size:14px;">
+            <p>Software Developer SAP — ABAP & Functional BW</p>
+            <div class="meta-links">
               📍 Sidoarjo, Jawa Timur · 
-              <a href="mailto:fuadasyhary@hotmail.com">fuadasyhary@hotmail.com</a> · 
-              <a href="tel:+6287819992082">+62 878-1999-2082</a>
+              <a href="mailto:fuadasyhary@hotmail.com" style="color:inherit;text-decoration:underline">fuadasyhary@hotmail.com</a> · 
+              <a href="tel:+6287819992082" style="color:inherit;text-decoration:underline">+62 878-1999-2082</a>
             </div>
             <div style="margin-top:8px">
-              <a href="https://github.com/fuadasyhary" target="_blank">GitHub</a> · 
-              <a href="https://id.linkedin.com/in/mochamad-fuad-asyhary" target="_blank">LinkedIn</a> · 
-              <a href="https://your-portfolio.example" target="_blank">Website</a>
+              <a href="https://github.com/fuadasyhary" target="_blank" style="color:inherit;text-decoration:underline">GitHub</a> ·
+              <a href="https://id.linkedin.com/in/mochamad-fuad-asyhary" target="_blank" style="color:inherit;text-decoration:underline">LinkedIn</a>
             </div>
-            <div style="margin-top:10px;"><span class="brand-pill">SAP • ABAP • BW</span></div>
+            <div class="brand-pill">SAP • ABAP • BW</div>
           </div>
         </div>
-        <div class="actions no-print">
-          <button id="theme-toggle" class="btn" title="Toggle light/dark">🌙 / ☀️</button>
-          <button id="download-pdf" class="btn primary" title="Download PDF">⬇️ Download PDF</button>
-          <button id="print-btn" class="btn" onclick="window.print()">🖨️ Cetak</button>
-        </div>
-      </header>
 
-      <div class="grid">
+        <div class="actions">
+          <button id="download-pdf" class="btn primary">⬇️ Download</button>
+          <button onclick="window.print()" class="btn">🖨️ Cetak</button>
+        </div>
+      </div>
+
+      <div class="content">
         <main>
-          <section>
+          <section class="card">
             <h2>Ringkasan</h2>
             <p>Developer SAP berpengalaman fokus ABAP & SAP BW untuk modul MM, PP, CO, PM, FI, SD, WM, QM, dan HCM. Ahli integrasi (BAPI/IDoc/REST/SOAP), Smartforms/Adobe Forms, ALV reporting, serta optimasi performa code & BW.</p>
           </section>
 
-          <section>
+          <section class="card" style="margin-top:14px">
             <h2>Pengalaman</h2>
-            <div style="margin-bottom:10px">
-              <strong>SAP BW Functional / SAP Technical Staff — PT Hatson Surya Electric</strong><br>
-              <small>Nov 2021 — Sekarang</small>
-              <ul class="list-dot">
-                <li>Membangun dan maintain extractor & DTP untuk modul CO/PP sehingga laporan costing lebih akurat.</li>
-                <li>Menangani custom ABAP & interface untuk data movement antara SAP dan sistem eksternal.</li>
+            <div style="margin-top:12px">
+              <h3>PT Hatson Surya Electric — SAP BW Functional / Technical Staff</h3>
+              <small style="color:var(--muted)">Nov 2021 — Sekarang</small>
+              <ul>
+                <li>Membangun & maintain extractor & DTP untuk CO/PP reporting.</li>
+                <li>Develop custom ABAP & interface untuk sinkronisasi data antar sistem.</li>
               </ul>
             </div>
-            <div style="margin-bottom:10px">
-              <strong>Core SAP ABAP — PT Kayu Mebel Indonesia</strong><br>
-              <small>Mar 2019 — Okt 2021</small>
-              <ul class="list-dot">
-                <li>Pengembangan custom report ABAP & ALV untuk proses produksi dan logistik.</li>
+            <div style="margin-top:12px">
+              <h3>PT Kayu Mebel Indonesia — Core SAP ABAP</h3>
+              <small style="color:var(--muted)">Mar 2019 — Okt 2021</small>
+              <ul>
+                <li>Custom ABAP & ALV reports untuk produksi & logistik.</li>
                 <li>Implementasi BDC untuk mass upload master data saat go-live.</li>
               </ul>
             </div>
           </section>
 
-          <section>
+          <section class="card" style="margin-top:14px">
             <h2>Portfolio SAP Projects</h2>
-            <div class="tags">
-              <span class="tag">ABAP</span><span class="tag">ALV</span><span class="tag">Smartforms</span><span class="tag">BDC</span><span class="tag">BW</span><span class="tag">REST</span>
+            <div class="tags" style="margin-bottom:12px">
+              <span class="tag">ABAP</span><span class="tag">ALV</span><span class="tag">Smartforms</span>
+              <span class="tag">BDC</span><span class="tag">BW</span><span class="tag">REST</span><span class="tag">SOAP</span>
             </div>
-            <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div class="card" style="padding:14px;">
-                <strong>ABAP ALV Report — MM Module</strong>
-                <div style="color:var(--muted);font-size:13px">ABAP · ALV · MM</div>
-                <p style="font-size:13px;margin-top:4px;">Custom report material master dengan filter plant & storage location. Optimize query untuk dataset besar.</p>
-              </div>
-              <div class="card" style="padding:14px;">
-                <strong>Smartforms — Purchase Order Layout</strong>
-                <div style="color:var(--muted);font-size:13px">Smartforms · FI · MM</div>
-                <p style="font-size:13px;margin-top:4px;">Desain & implementasi form PO baru menggantikan template lama perusahaan.</p>
-              </div>
-              <div class="card" style="padding:14px;">
-                <strong>BDC — Vendor Master Upload</strong>
-                <div style="color:var(--muted);font-size:13px">BDC · LSMW</div>
-                <p style="font-size:13px;margin-top:4px;">Batch upload vendor master untuk migrasi data saat implementasi rollout.</p>
-              </div>
-              <div class="card" style="padding:14px;">
-                <strong>BW Data Extraction — CO-PA</strong>
-                <div style="color:var(--muted);font-size:13px">BW · CO-PA · DTP</div>
-                <p style="font-size:13px;margin-top:4px;">Mendesain DataSource & transform untuk reporting profitability analysis.</p>
-              </div>
+            <div class="projects-grid">
+              <div class="proj"><strong>ABAP ALV Report — MM Module</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Optimize query handling large dataset; multi-filter material master.</div></div>
+              <div class="proj"><strong>Smartforms — Purchase Order Layout</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Redesigned PO layout replacing legacy template for readability & print layout.</div></div>
+              <div class="proj"><strong>BDC — Vendor Master Upload</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Batch migration for vendor master data using LSMW/BDC.</div></div>
+              <div class="proj"><strong>BW Data Extraction — CO-PA</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">DataSource & transformation design for profitability analysis.</div></div>
             </div>
           </section>
 
-          <section>
+          <section class="card" style="margin-top:14px">
             <h2>Keahlian & Teknologi</h2>
-            <div class="tags">
-              <span class="tag">ABAP (OO)</span><span class="tag">SAP BW</span><span class="tag">BDC / LSMW</span><span class="tag">BAPI / IDoc</span><span class="tag">Smartforms</span><span class="tag">Fiori / OData</span><span class="tag">Performance Tuning</span>
+            <div style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap">
+              <div style="flex:1"><strong>ABAP (OO)</strong><br><small style="color:var(--muted)">Advanced</small></div>
+              <div style="flex:1"><strong>SAP BW</strong><br><small style="color:var(--muted)">Advanced</small></div>
+              <div style="flex:1"><strong>Integration</strong><br><small style="color:var(--muted)">BAPI / IDoc / REST / SOAP</small></div>
             </div>
           </section>
 
-          <section>
+          <section class="card" style="margin-top:14px">
             <h2>Pendidikan</h2>
             <strong>Universitas Dinamika — S.Kom, Information System</strong><br>
-            <small>2015 — 2019</small>
+            <small style="color:var(--muted)">2015 — 2019</small>
           </section>
         </main>
 
         <aside>
-          <h3>Sorotan</h3>
-          <ul>
-            <li>8+ tahun pengalaman di ekosistem SAP</li>
-            <li>Spesialis BDC, Enhancement, User Exit, BAPI/BADI</li>
-            <li>Integrasi REST API & SOAP untuk sistem eksternal</li>
-          </ul>
+          <div class="card">
+            <h3>Sorotan</h3>
+            <ul>
+              <li>8+ tahun pengalaman di ekosistem SAP</li>
+              <li>Spesialis BDC, Enhancement, User Exit, BAPI/BADI</li>
+              <li>Integrasi REST API & SOAP untuk sistem eksternal</li>
+            </ul>
+          </div>
 
-          <div style="margin-top:14px;text-align:center;">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A//wa.me/6287819992082" alt="WA QR" style="width:120px;height:120px;border-radius:8px;border:1px solid var(--border)"/>
-            <div style="margin-top:6px;">
-              <strong>WhatsApp</strong><br>
-              <small>Klik atau scan untuk chat</small><br>
-              <a href="https://wa.me/6287819992082" target="_blank" class="btn" style="margin-top:6px;">💬 Chat Sekarang</a>
+          <div class="card">
+            <div class="qr">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A//wa.me/6287819992082" alt="WA QR" style="width:110px;height:110px;border-radius:8px;border:1px solid rgba(255,255,255,0.08)">
+              <div>
+                <strong>WhatsApp</strong><br>
+                <small style="color:var(--muted)">Klik atau scan untuk chat</small><br><br>
+                <a href="https://wa.me/6287819992082" class="btn" style="margin-top:8px;color:#fff;background:var(--sap-blue-1)">💬 Chat</a>
+              </div>
             </div>
           </div>
 
-          <div style="margin-top:20px;">
+          <div class="card">
             <h3>Kontak & Links</h3>
             <small>
-              ✉️ <a href="mailto:fuadasyhary@hotmail.com">fuadasyhary@hotmail.com</a><br>
-              📞 <a href="tel:+6287819992082">+62 878-1999-2082</a><br>
-              💻 <a href="https://github.com/fuadasyhary" target="_blank">GitHub</a><br>
-              💼 <a href="https://id.linkedin.com/in/mochamad-fuad-asyhary" target="_blank">LinkedIn</a>
+              ✉️ <a href="mailto:fuadasyhary@hotmail.com" style="color:inherit;text-decoration:underline">fuadasyhary@hotmail.com</a><br>
+              📞 <a href="tel:+6287819992082" style="color:inherit;text-decoration:underline">+62 878-1999-2082</a><br>
+              💻 <a href="https://github.com/fuadasyhary" target="_blank" style="color:inherit;text-decoration:underline">github.com/fuadasyhary</a><br>
+              💼 <a href="https://id.linkedin.com/in/mochamad-fuad-asyhary" target="_blank" style="color:inherit;text-decoration:underline">linkedin.com/in/mochamad-fuad-asyhary</a>
             </small>
           </div>
         </aside>
       </div>
 
-      <footer>© 2025 Mochamad Fuad Asyhary · SAP Developer ABAP & SAP Functional BW</footer>
+      <div class="footer">
+        <div>© 2025 Mochamad Fuad Asyhary · SAP Developer ABAP & SAP Functional BW</div>
+        <div style="font-size:12px;color:var(--muted)">Made with ❤️ — Modern SAP vibe</div>
+        <img src="sap-watermark.png" alt="SAP watermark" class="watermark">
+      </div>
     </div>
   </div>
 
   <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    function setDark(d){ 
-      document.documentElement.classList.toggle('dark', d); 
-      localStorage.setItem('dark', d? '1':'0'); 
-    }
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setDark(localStorage.getItem('dark') === '1' || (localStorage.getItem('dark')===null && prefersDark));
-    themeToggle.addEventListener('click', ()=>setDark(!document.documentElement.classList.contains('dark')));
+    document.getElementById('download-pdf').addEventListener('click', async function(){
+      if(typeof window.html2pdf === 'undefined'){
+        const s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js';
+        document.head.appendChild(s);
+        await new Promise((res)=>{s.onload=res});
+      }
+      const el = document.getElementById('resume-root');
+      const opt = { margin: 10, filename: 'Mochamad_Fuad_Asyhary-Resume.pdf', image:{type:'jpeg',quality:0.98}, html2canvas:{scale:2,useCORS:true}, jsPDF:{unit:'mm',format:'a4',orientation:'portrait'} };
+      window.html2pdf().set(opt).from(el).save();
+    });
   </script>
 </body>
 </html>
