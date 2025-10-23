@@ -232,12 +232,47 @@
       }
     }
 
-
     @media print {
       body { background: #fff; color: #000; padding: 0 }
       .header-band, .btn, .actions, .watermark { display: none }
       .resume { box-shadow: none; border-radius: 0; background: #fff }
     }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .proj {
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.04);
+      transition: transform .28s ease, box-shadow .28s;
+    }
+
+    .proj:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(12,40,100,0.25);
+    }
+
+    .proj-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .proj {
+        padding: 12px;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -296,20 +331,132 @@
               </ul>
             </div>
           </section>
-
           <section class="card" style="margin-top:14px">
             <h2>Portfolio SAP Projects</h2>
-            <div class="tags" style="margin-bottom:12px">
-              <span class="tag">ABAP</span><span class="tag">ALV</span><span class="tag">Smartforms</span>
-              <span class="tag">BDC</span><span class="tag">BW</span><span class="tag">REST</span><span class="tag">SOAP</span>
+          
+            <!-- Skill Tags -->
+            <div class="tags" style="margin-bottom:14px">
+              <span class="tag">ABAP</span>
+              <span class="tag">ALV</span>
+              <span class="tag">Smartforms</span>
+              <span class="tag">BDC</span>
+              <span class="tag">BW</span>
+              <span class="tag">REST</span>
+              <span class="tag">SOAP</span>
             </div>
+          
+            <!-- Projects Grid -->
             <div class="projects-grid">
-              <div class="proj"><strong>ABAP ALV Report — MM Module</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Optimize query handling large dataset; multi-filter material master.</div></div>
-              <div class="proj"><strong>Smartforms — Purchase Order Layout</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Redesigned PO layout replacing legacy template for readability & print layout.</div></div>
-              <div class="proj"><strong>BDC — Vendor Master Upload</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">Batch migration for vendor master data using LSMW/BDC.</div></div>
-              <div class="proj"><strong>BW Data Extraction — CO-PA</strong><div style="font-size:13px;color:var(--muted);margin-top:6px">DataSource & transformation design for profitability analysis.</div></div>
+          
+              <!-- Project Card -->
+              <div class="proj">
+                <strong>GO LIVE BMS HARTONO V2 Mobile & Website</strong><br>
+                <small style="color:var(--muted)">Agu 2024 – Sekarang</small>
+                <p style="margin-top:6px">Implementasi sistem Business Management System (BMS) Hartono versi 2.</p>
+                <ul style="margin-top:6px">
+                  <li>Membuat 20+ Endpoint REST API SAP</li>
+                  <li>Melakukan full testing seluruh program</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: ABAP · Integration · Data Analysis · SAP HANA · SAP ERP · SAP Retail</small>
+              </div>
+          
+              <div class="proj">
+                <strong>GO LIVE ANALYZER FINANCE & MEMBER</strong><br>
+                <small style="color:var(--muted)">Feb 2024 – Sekarang</small>
+                <p style="margin-top:6px">Pengembangan modul Analyzer Finance dan Member di SAP BW on HANA.</p>
+                <ul style="margin-top:6px">
+                  <li>Analisis requirement dan pembuatan InfoObject</li>
+                  <li>Membangun provider (DSO, CUBE, COMPOSITE)</li>
+                  <li>Membuat query element di Query Designer</li>
+                  <li>Testing dan validasi hasil analyzer</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: SAP BW · ABAP · Analytics · Requirements Analysis · SAP ERP</small>
+              </div>
+          
+              <div class="proj">
+                <strong>GO LIVE AMS HARTONO Mobile & Website</strong><br>
+                <small style="color:var(--muted)">Feb 2024 – Jun 2024</small>
+                <p style="margin-top:6px">Audit Management System (AMS) integrasi SAP dan aplikasi eksternal.</p>
+                <ul style="margin-top:6px">
+                  <li>Membuat 20+ REST API SAP</li>
+                  <li>Melakukan UAT dan regression testing</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: ABAP · REST API · SAP HANA · SAP Retail</small>
+              </div>
+          
+              <div class="proj">
+                <strong>GO LIVE NEW COMPANY CODE ADG</strong><br>
+                <small style="color:var(--muted)">Agu 2023 – Jan 2024</small>
+                <p style="margin-top:6px">Setup Company Code baru untuk partner logistik ADG.</p>
+                <ul style="margin-top:6px">
+                  <li>Modifikasi 80+ program RICEF</li>
+                  <li>Membuat enhancement & testing end-to-end</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: ABAP · Enhancement · SAP HANA · SAP ERP</small>
+              </div>
+          
+              <div class="proj">
+                <strong>Create Big Report FICO All In One</strong><br>
+                <small style="color:var(--muted)">Mar 2023 – Sep 2023</small>
+                <p style="margin-top:6px">Laporan gabungan FICO (ZPKR_V2) dalam format summary, detail, dan pivot.</p>
+                <ul style="margin-top:6px">
+                  <li>Mengembangkan summary & detail report FICO</li>
+                  <li>Membuat pivot matrix report</li>
+                  <li>Melakukan full testing</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: ABAP · FICO · Analytics · SAP HANA · Reporting</small>
+              </div>
+          
+              <div class="proj">
+                <strong>GO LIVE RSS HARTONO V2</strong><br>
+                <small style="color:var(--muted)">Feb 2023 – Jul 2023</small>
+                <p style="margin-top:6px">Integrasi SAP Retail HANA ke aplikasi Retail Sales & Kasir (mobile/web).</p>
+                <ul style="margin-top:6px">
+                  <li>Integrasi 5 program WSDL & REST API</li>
+                  <li>Testing interface data real-time</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: SAP Retail · REST API · Integration · ABAP</small>
+              </div>
+          
+              <div class="proj">
+                <strong>GO LIVE SAP FIORI</strong><br>
+                <small style="color:var(--muted)">Feb 2021 – Apr 2021</small>
+                <p style="margin-top:6px">Konektivitas +50 program SAP S/4HANA ke SAP Fiori</p>
+                <ul style="margin-top:6px">
+                  <li>Migrasi & konfigurasi otorisasi user</li>
+                  <li>Membuat enhancement tambahan</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: ABAP · SAP Fiori · Authorization · Enhancement</small>
+              </div>
+          
+              <div class="proj">
+                <strong>GO LIVE AUTO EMAIL SAP S/4HANA</strong><br>
+                <small style="color:var(--muted)">Jan 2021 – Mar 2021</small>
+                <p style="margin-top:6px">Membangun sistem otomatisasi email di SAP S/4HANA</p>
+                <ul style="margin-top:6px">
+                  <li>Develop auto job & service email</li>
+                  <li>Testing service dan schedule</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: ABAP · Workflow · Scheduling · SAP NetWeaver</small>
+              </div>
+          
+              <div class="proj">
+                <strong>GO LIVE SAP S/4HANA Migration</strong><br>
+                <small style="color:var(--muted)">Feb 2020 – Okt 2020</small>
+                <p style="margin-top:6px">Migrasi +100 program SAP R/3 ke S/4HANA (RICEF full cycle)</p>
+                <p style="font-size:10px; color:var(--muted); margin-top:2px;">
+                  PT KAYU MEBEL INDONESIA <br> PT SINAR RIMBA PASIFIK (Partner PT KAYU MEBEL INDONESIA)
+                </p>
+                <ul style="margin-top:6px">
+                  <li>Migrasi form & enhancement</li>
+                  <li>Testing seluruh modul</li>
+                </ul>
+                <small style="color:var(--muted)">Keahlian: ABAP · SAP S/4HANA · RICEF · Authorization</small>
+              </div>
+          
             </div>
           </section>
+          
 
           <section class="card" style="margin-top:14px">
             <h2>Keahlian & Teknologi</h2>
